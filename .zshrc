@@ -21,6 +21,7 @@ eval "$(starship init zsh)"
 
 export PATH="/usr/local/opt/go@1.14/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 export GOPRIVATE=github.com/epifi/* #Ignore epifi private modules which not available in go checksum databaase
 
 # Functions
