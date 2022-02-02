@@ -2,10 +2,13 @@
 alias pip="pip3"
 alias python="python3"
 alias zshrc="nvim ~/.zshrc"
+alias vimrc="cd ~/.config/nvim && vim"
 alias gamma="cd ~/go/src/github.com/epifi/gamma"
 alias protos="cd ~/go/src/github.com/epifi/protos"
 alias go-learn="cd ~/go/src/github.com/sainad2222/go-learnings"
 alias vim="nvim"
+alias vimpy="cd ~/edu && vim test.py"
+alias vimcpp="cd ~/edu && vim test.cpp"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
