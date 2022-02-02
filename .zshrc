@@ -37,6 +37,26 @@ remove_lines_with_pattern(){
         fi
     done
 }
+
+sync_dots(){
+    cd $HOME
+    echo "Updating brewlist..."
+    brew list > $HOME/.config/homebrew/brew.list
+    function dotfiles(){
+        /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+    }
+    files=$(dotfiles status --porcelain | awk '{ print $2 }')
+    echo $files
+    echo $files | while read -r file; do
+        dotfiles add $file
+    done
+    echo "Enter a commit message"
+    read commit_msg
+    dotfiles commit -m $commit_msg
+    dotfiles push
+    echo "DONE"
+}
+
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(git
     zsh-autosuggestions
