@@ -73,30 +73,6 @@ fix_sherlock(){
     fi
 }
 
-start_sherlock(){
-    cd $HOME/go/src/github.com/epifi/gamma
-    redis-server &> logs/redis.log &
-    sleep 1
-    make run target=cx &> logs/cx.log &
-    sleep 10
-    make run target=casbin &> logs/casbin.log &
-    sleep 7
-    make run target=vendorgateway &> logs/vendorgateway.log &
-    sleep 7
-    make run target=user &> logs/user.log &
-    sleep 10
-    cd $HOME/go/src/github.com/epifi/sherlock
-    yarn dev &> logs &
-}
-
-stop_sherlock(){
-   pkill cx
-   pkill user
-   pkill vendorgateway
-   pkill casbin
-   pkill redis-server
-}
-
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(git
     zsh-autosuggestions
