@@ -1,6 +1,8 @@
 awscli
 ca-certificates
+ccls
 cockroach
+consul
 exercism
 fd
 fzf
@@ -17,6 +19,7 @@ libtermkey
 libunistring
 libuv
 libyaml
+llvm
 lua-language-server
 luajit-openresty
 luv
@@ -28,6 +31,7 @@ neovim
 openjdk
 openssl@1.1
 pcre2
+pkg-config
 postgresql
 pre-commit
 python@3.10
@@ -46,4 +50,6 @@ utf8proc
 wget
 xz
 zsh-completions
+alt-tab
 bloomrpc
+unnaturalscrollwheels

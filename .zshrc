@@ -5,10 +5,14 @@ alias zshrc="nvim ~/.zshrc"
 alias vimrc="cd ~/.config/nvim && vim"
 alias gamma="cd ~/go/src/github.com/epifi/gamma"
 alias protos="cd ~/go/src/github.com/epifi/protos"
+alias sherlock="cd ~/go/src/github.com/epifi/Sherlock"
 alias go-learn="cd ~/go/src/github.com/sainad2222/go-learnings"
 alias vim="nvim"
 alias vimpy="cd ~/edu && vim test.py"
 alias vimcpp="cd ~/edu && vim test.cpp"
+alias vimgo="cd ~/edu/go_test && vim main.go"
+alias dc="docker-compose"
+alias kill_background_jobs="jobs -p | grep -o -E '\s\d+\s' | xargs kill"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
@@ -58,6 +62,39 @@ sync_dots(){
     dotfiles commit -m $commit_msg
     dotfiles push
     echo "DONE"
+}
+
+fix_sherlock(){
+    file='server/grpc/utils.js'
+    if grep -q createSsl $file; then
+        sed -i '' "s/createSsl/createInsecure/g" "$file"
+    else
+        sed -i '' "s/createInsecure/createSsl/g" "$file"
+    fi
+}
+
+start_sherlock(){
+    cd $HOME/go/src/github.com/epifi/gamma
+    redis-server &> logs/redis.log &
+    sleep 1
+    make run target=cx &> logs/cx.log &
+    sleep 10
+    make run target=casbin &> logs/casbin.log &
+    sleep 7
+    make run target=vendorgateway &> logs/vendorgateway.log &
+    sleep 7
+    make run target=user &> logs/user.log &
+    sleep 10
+    cd $HOME/go/src/github.com/epifi/sherlock
+    yarn dev &> logs &
+}
+
+stop_sherlock(){
+   pkill cx
+   pkill user
+   pkill vendorgateway
+   pkill casbin
+   pkill redis-server
 }
 
 export ZSH="$HOME/.oh-my-zsh"
