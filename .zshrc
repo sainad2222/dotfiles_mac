@@ -66,11 +66,9 @@ sync_dots(){
 
 fix_sherlock(){
     file='server/grpc/utils.js'
-    if grep -q createSsl $file; then
-        sed -i '' "s/createSsl/createInsecure/g" "$file"
-    else
-        sed -i '' "s/createInsecure/createSsl/g" "$file"
-    fi
+    sed -i '' "s/createSsl/abcDefghi/g" "$file"
+    sed -i '' "s/createInsecure/createSsl/g" "$file"
+    sed -i '' "s/abcDefghi/createInsecure/g" "$file"
 }
 
 export ZSH="$HOME/.oh-my-zsh"

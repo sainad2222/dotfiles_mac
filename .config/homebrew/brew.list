@@ -34,6 +34,7 @@ pcre2
 pkg-config
 postgresql
 pre-commit
+python-tk@3.9
 python@3.10
 python@3.9
 readline
@@ -42,6 +43,7 @@ rust-analyzer
 six
 sqlite
 starship
+tcl-tk
 tmux
 tree
 tree-sitter
