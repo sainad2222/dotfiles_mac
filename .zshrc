@@ -29,6 +29,7 @@ eval "$(starship init zsh)"
 export PATH="/usr/local/opt/go@1.14/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.config/scripts"
 export GOPRIVATE=github.com/epifi/* #Ignore epifi private modules which not available in go checksum databaase
 
 # Functions
@@ -69,6 +70,13 @@ fix_sherlock(){
     sed -i '' "s/createSsl/abcDefghi/g" "$file"
     sed -i '' "s/createInsecure/createSsl/g" "$file"
     sed -i '' "s/abcDefghi/createInsecure/g" "$file"
+}
+
+rebase(){
+    gcm
+    ggpull
+    gco -
+    git rebase master
 }
 
 export ZSH="$HOME/.oh-my-zsh"
