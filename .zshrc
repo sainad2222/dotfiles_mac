@@ -73,9 +73,9 @@ fix_sherlock(){
 }
 
 rebase(){
-    gcm
-    ggpull
-    gco -
+    git checkout master
+    git pull origin master
+    git checkout -
     git rebase master
 }
 

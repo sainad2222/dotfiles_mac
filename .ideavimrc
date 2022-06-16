@@ -1,0 +1,22 @@
+let mapleader=","
+let g:mapleader=","
+
+imap ii <esc>
+set timeoutlen=250
+set nu
+set rnu
+vnoremap < <gv
+vnoremap > >gv
+nnoremap H <Action>(NextTab)
+nnoremap L <Action>(PrevTab)
+
+nnoremap d "_d
+vnoremap d "_d
+nnoremap c "_c
+nnoremap s "_s
+vnoremap s "_s
+nnoremap S "_S
+vnoremap S "_S
+
+vnoremap <Leader>y "+y
+set clipboard=unnamedplus   " se system clipboard not just regiesters(imp)
