@@ -7,8 +7,8 @@ set nu
 set rnu
 vnoremap < <gv
 vnoremap > >gv
-nnoremap H <Action>(NextTab)
-nnoremap L <Action>(PrevTab)
+nmap L <Action>(NextTab)
+nmap H <Action>(PreviousTab)
 
 nnoremap d "_d
 vnoremap d "_d
