@@ -79,6 +79,11 @@ rebase(){
     git rebase master
 }
 
+gfp(){
+    CUR=$(git branch --show-current)
+    git push -u origin $CUR
+}
+
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(git
     zsh-autosuggestions
