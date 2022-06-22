@@ -66,13 +66,6 @@ sync_dots(){
     echo "DONE"
 }
 
-fix_sherlock(){
-    file='server/grpc/utils.js'
-    sed -i '' "s/createSsl/abcDefghi/g" "$file"
-    sed -i '' "s/createInsecure/createSsl/g" "$file"
-    sed -i '' "s/abcDefghi/createInsecure/g" "$file"
-}
-
 rebase(){
     git checkout master
     git pull origin master
@@ -83,6 +76,13 @@ rebase(){
 gfp(){
     CUR=$(git branch --show-current)
     git push -u origin $CUR
+}
+
+fix_sherlock(){
+    file='server/grpc/utils.js'
+    sed -i '' "s/createSsl/abcDefghi/g" "$file"
+    sed -i '' "s/createInsecure/createSsl/g" "$file"
+    sed -i '' "s/abcDefghi/createInsecure/g" "$file"
 }
 
 fix_frontend(){
