@@ -13,6 +13,7 @@ alias vimcpp="cd ~/edu && vim test.cpp"
 alias vimgo="cd ~/edu/go_test && vim main.go"
 alias dc="docker-compose"
 alias kill_background_jobs="jobs -p | grep -o -E '\s\d+\s' | xargs kill"
+alias notepad="vim ~/notepad.md"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
@@ -82,6 +83,17 @@ rebase(){
 gfp(){
     CUR=$(git branch --show-current)
     git push -u origin $CUR
+}
+
+fix_frontend(){
+    # step 0: cd
+    cd $HOME/go/src/github.com/epifi/gamma
+    # step 1: Copy staging to development
+    cp pkg/cfg/config/endpoints-staging.yml pkg/cfg/config/endpoints-development.yml
+    # step 2: Change frontend endpoint to localhost
+    python3 $HOME/.config/scripts/fix_frontend.py
+    # step 3: Remove interceptors from frontend server
+    sed -i '' "s/, interceptors...//g" cmd/frontend/server.go
 }
 
 export ZSH="$HOME/.oh-my-zsh"
