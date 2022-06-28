@@ -16,7 +16,6 @@ $hg_branch\
 $docker_context\
 $package\
 $buf\
-$c\
 $cmake\
 $cobol\
 $container\
